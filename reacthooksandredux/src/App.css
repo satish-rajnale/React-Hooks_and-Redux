@@ -55,7 +55,41 @@ section{
   flex-grow: inherit;
  
   
-  background-color: teal;
+  background-color: rgb(105, 133, 133);
+}
+
+.addList{
+  height:100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.listitem{
+  display: flex;
+  height:40px;
+
+  border-bottom: 1px solid black;
+}
+
+li div{
+  width:90%;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-left:15px ;
+  text-align: start;
+}
+li button{
+  margin: 9px;
+  width:7%;
+  color:red;
+  background: transparent;
+  border:none;
+  font-size: 18px;
 }
 
 .footer{
