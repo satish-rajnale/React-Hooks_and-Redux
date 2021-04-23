@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #282c34;
+  background-color: #c1cee9;
 height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,7 +22,7 @@ height: 100vh;
   width:500px;
   height:560px;
   border-radius: 10px;
-  border: 1px solid white;
+  border: 1px solid #04276e;
 }
 
 
@@ -31,6 +31,7 @@ height: 100vh;
   justify-content: center;
   align-items: center;
   display: flex;
+  flex-direction: column;
   text-align: center;
   width:100%;
   height:10%;
@@ -39,6 +40,9 @@ height: 100vh;
   color: white;
 }
 
+.App-header div{
+  width:100%;
+}
 section{
   flex:1 0 auto;
   display: flex;
@@ -50,11 +54,11 @@ section{
   display: flex;
   flex-direction: column;
   width:100%;
-  
+  border:none;
   overflow-y: scroll;
 
   height:504px;
-  background-color: rgb(105, 133, 133);
+  background-color: #aabfeb;
 }
 
 .addList{
@@ -64,6 +68,7 @@ section{
   padding: 0;
   display: flex;
   flex-direction: column;
+  color: white;
 
 }
 
@@ -79,8 +84,13 @@ li div{
   overflow:hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  align-items: center;
+  display: flex;
   padding-left:15px ;
+  font-size: 15px;
   text-align: start;
+  color: white;
+
 }
 li button{
   margin: 9px;

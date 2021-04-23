@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 import './App.css';
 import Header from './Header';
 
+
+
+
 const  App : React.FC =() => {
   const [task, setTask] = useState<string>("");// <string | null> throws error that value cannot be null; 
   const [todoList, setTodoList] = useState<Array<string>>(["Hii I am here"]);// null does not work Array<string |null> it shows error that string[] cannot be null
-
+  const [dark, setDark] = useState<boolean>(false);
 
  const handleChange = (event : React.ChangeEvent<HTMLInputElement>) => {
     setTask(event.target.value);
@@ -15,14 +18,27 @@ const  App : React.FC =() => {
  const addTodo  = ( ) => {
    setTodoList([...todoList, task]);
 }
+const changeBack  = ( ) => {
+  setDark(!dark);
 
+}
+const theme = useMemo(() => {
+  return {
+    backgroundColor : dark ? "black" : "white",
+  color: dark ? "white" : "black"
+  }
+}, [dark])
+
+useEffect(() => {
+  console.log('theme chnaged')
+}, [theme])
 
   return (
     <div className="App">
       <div className="todoApp">
       <header className="App-header">
        <Header buttontext="Todo App" incrementor={3}/> 
-       
+       <div style={theme}> <button onClick={changeBack}>Click</button></div>
       </header>
       <section>
         <div className="todoBody">
