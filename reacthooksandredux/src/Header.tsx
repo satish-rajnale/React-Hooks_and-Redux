@@ -11,7 +11,7 @@ function Header(props : HeaderText) {
     return (
         <div>
             <text>{props.buttontext}</text>
-            <button >{props.incrementor}</button>
+           
         </div>
     )
 }

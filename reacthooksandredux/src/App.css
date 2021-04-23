@@ -1,11 +1,13 @@
 .App {
   text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -13,17 +15,39 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.todoApp{
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width:500px;
+  height:560px;
+  border-radius: 10px;
+  border: 1px solid white;
+}
+
+
+.App-header {
+  
   justify-content: center;
+  align-items: center;
+  display: flex;
+  text-align: center;
+  width:100%;
+  height:10%;
+  border-bottom: 1px solid whitesmoke;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
+.todoBody{
+  height:max-content;
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  
+  background-color: teal;
+}
 .App-link {
   color: #61dafb;
 }
