@@ -7,13 +7,9 @@ interface HeaderText {
 }
 
 
-function Header(props : HeaderText) {
-    return (
-        <div>
-            <div>{props.buttontext}</div>
-           
-        </div>
-    )
+function Header(props : HeaderText)  {
+    return  <div>{props.buttontext}</div>
+ 
 }
 
 export default Header

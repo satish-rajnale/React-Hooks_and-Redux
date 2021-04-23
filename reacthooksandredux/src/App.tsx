@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import './App.css';
 import Header from './Header';
 
-function App() {
+const  App : React.FC =() => {
   const [task, setTask] = useState<string>("");// <string | null> throws error that value cannot be null; 
-  const [todoList, setTodoList] = useState<Array<string>>([]);// null does not work Array<string |null> it shows error that string[] cannot be null
+  const [todoList, setTodoList] = useState<Array<string>>(["Hii I am here"]);// null does not work Array<string |null> it shows error that string[] cannot be null
 
 
  const handleChange = (event : React.ChangeEvent<HTMLInputElement>) => {
