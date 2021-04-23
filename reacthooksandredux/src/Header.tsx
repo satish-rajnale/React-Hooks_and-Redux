@@ -10,7 +10,7 @@ interface HeaderText {
 function Header(props : HeaderText) {
     return (
         <div>
-            <text>{props.buttontext}</text>
+            <div>{props.buttontext}</div>
            
         </div>
     )

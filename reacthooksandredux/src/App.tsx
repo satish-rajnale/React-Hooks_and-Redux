@@ -24,20 +24,26 @@ function App() {
        <Header buttontext="Todo App" incrementor={3}/> 
        
       </header>
-      <body>
+      <section>
         <div className="todoBody">
           <div className="todoLists" >
             <ul className="addList">
-              {}
+              {todoList.length!==0 ? 
+                todoList.map((data, index) => (
+                  <li key={index} className="listitem">
+                    <div>{data}</div><button>X</button>
+                  </li>
+                ))
+              : null }
             </ul>
           </div>
-          <div className="footer">
+          
+        </div>
+        <div className="footer">
             <input type="text" value={task} onChange={handleChange}/>
             <button type="submit" onClick={addTodo}>Add</button>
           </div>
-        </div>
-        
-      </body>
+      </section>
       </div>
     </div>
   );
