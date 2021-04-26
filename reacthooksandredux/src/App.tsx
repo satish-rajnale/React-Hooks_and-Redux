@@ -24,11 +24,14 @@ const App: React.FC = () => {
         <Container>
           <p> fooo</p>
         </Container>
+        <TextWithNumber header={(num : number) => <div> Todays header is {num}</div> }>
+          {(num : number) => <div> Todays number is {num}</div> }
+        </TextWithNumber>
     </div>
   );
 };
 
-
+// const HeadingFC : React.FC<{title: string}> = ({title}) => <h1>{title}</h1>;   //old way of doing things
 function Heading ({title} : {title : string}){
   return <strong>{title}</strong>
 }
@@ -48,5 +51,29 @@ function Container ({children, footer} : ContainerProps): ReactElement{
             <h4>{footer}{children}</h4>
             </>
 }
+
+
+// Functional props
+function TextWithNumber({ header,children}
+                           : {children : (num : number) => ReactNode
+                              header : (num : number) => ReactNode }){
+  const [state, setState] = useState<number >(0);
+
+  return (
+    <div>
+      {header(state)}
+      {children(state)}
+      <div>
+        <button onClick={() => setState(state +1)}>Add</button>
+      </div>
+    </div>
+  )
+}
+
+
+
+
+
+
 Container.defaultProps = defaultContainerProps;
 export default App;
