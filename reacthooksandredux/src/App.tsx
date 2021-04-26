@@ -24,9 +24,11 @@ const App: React.FC = () => {
         <Container>
           <p> fooo</p>
         </Container>
-        <TextWithNumber header={(num : number) => <div> Todays header is {num}</div> }>
+        <TextWithNumber >
           {(num : number) => <div> Todays number is {num}</div> }
         </TextWithNumber>
+        <List items={['jack', 'cify', 'asd']} render={(item : string) => <div>{item.toLowerCase()}</div>} />
+        <MyHeadingLoader title="There you go"/>
     </div>
   );
 };
@@ -51,17 +53,17 @@ function Container ({children, footer} : ContainerProps): ReactElement{
             <h4>{footer}{children}</h4>
             </>
 }
-
+Container.defaultProps = defaultContainerProps;
 
 // Functional props
 function TextWithNumber({ header,children}
                            : {children : (num : number) => ReactNode
-                              header : (num : number) => ReactNode }){
+                              header? : (num : number) => ReactNode }){
   const [state, setState] = useState<number >(0);
 
   return (
     <div>
-      {header(state)}
+      {header && <h2>header?.(state)</h2>}
       {children(state)}
       <div>
         <button onClick={() => setState(state +1)}>Add</button>
@@ -70,10 +72,29 @@ function TextWithNumber({ header,children}
   )
 }
 
+// function generics 
+// List
+function List<ListItem>({ items, render}: { items : ListItem[], render : (item : ListItem) => ReactNode}){
+  return (
+    <ul>
+      { items.map((item, index) => (
+        <li key={index}>
+          {render(item)}
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+// class Compoonent 
+class MyHeadingLoader extends React.Component<{ title: ReactNode}>{
+ render(){
+   return (
+     <h3>{this.props.title}</h3>
+   )
+ }
+
+}
 
 
-
-
-
-Container.defaultProps = defaultContainerProps;
 export default App;
