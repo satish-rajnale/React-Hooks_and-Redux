@@ -2,7 +2,7 @@ import React, { ReactElement, ReactNode, useEffect, useMemo, useRef, useState } 
 import Todo from './Todo';
 import "./App.css";
 
-import {printToFile, arrayMutation} from "./allAboutTypeScript/fileFunction"
+
 
 
 
@@ -54,7 +54,7 @@ function Container ({children, footer} : ContainerProps): ReactElement{
             </>
 }
 Container.defaultProps = defaultContainerProps;
-printToFile("Hello", () => {})
+
 // Functional props
 function TextWithNumber({ header,children}
                            : {children : (num : number) => ReactNode
