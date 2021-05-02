@@ -2,7 +2,7 @@ import React, { ReactElement, ReactNode, useEffect, useMemo, useRef, useState } 
 import Todo from './Todo';
 import "./App.css";
 
-
+import {printToFile, arrayMutation} from "./allAboutTypeScript/fileFunction"
 
 
 
@@ -54,7 +54,7 @@ function Container ({children, footer} : ContainerProps): ReactElement{
             </>
 }
 Container.defaultProps = defaultContainerProps;
-
+printToFile("Hello", () => {})
 // Functional props
 function TextWithNumber({ header,children}
                            : {children : (num : number) => ReactNode
@@ -72,6 +72,8 @@ function TextWithNumber({ header,children}
   )
 }
 
+
+
 // function generics 
 // List
 function List<ListItem>({ items, render}: { items : ListItem[], render : (item : ListItem) => ReactNode}){
@@ -85,6 +87,11 @@ function List<ListItem>({ items, render}: { items : ListItem[], render : (item :
     </ul>
   )
 }
+
+
+
+
+
 
 // class Compoonent 
 class MyHeadingLoader extends React.Component<{ title: ReactNode}>{
