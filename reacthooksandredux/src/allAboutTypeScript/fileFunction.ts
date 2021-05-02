@@ -16,7 +16,9 @@ console.log(arrayMutation([1,2,3], (v) => v+10 ))
 
 
 // closure in js & ts
-export function createAdder(num : number){
+
+type adder = (a: number) => number
+export function createAdder(num : number): adder{
     return (val: number) => num+ val;
 }
 
