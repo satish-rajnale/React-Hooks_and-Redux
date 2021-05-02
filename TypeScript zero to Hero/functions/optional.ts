@@ -5,7 +5,7 @@ function cooking(quantity: string, ingredients: string, extra?: string): string 
 console.log(cooking("5", "melon"));
 console.log(cooking("10", "tea", "lemon"));
 
-import User from "./interfaces/interface";
+import User from "../interfaces/interface";
 
 function sendUser(user: User): string{
     if(user){
