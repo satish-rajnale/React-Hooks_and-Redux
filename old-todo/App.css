@@ -1,0 +1,136 @@
+.App {
+  text-align: center;
+  background-color: #c1cee9;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+
+.todoApp{
+  display: flex;
+  flex-direction: column;
+  width:500px;
+  height:560px;
+  border-radius: 10px;
+  border: 1px solid #04276e;
+}
+
+
+.App-header {
+ 
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width:100%;
+  height:10%;
+  border-bottom: 1px solid whitesmoke;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-header div{
+  width:100%;
+}
+section{
+  flex:1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.todoBody{
+ 
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  border:none;
+  overflow-y: scroll;
+
+  height:504px;
+  background-color: #aabfeb;
+}
+
+.addList{
+  height:100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  color: white;
+
+}
+
+.listitem{
+  display: flex;
+  height:40px;
+
+  border-bottom: 1px solid black;
+}
+
+li div{
+  width:90%;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  align-items: center;
+  display: flex;
+  padding-left:15px ;
+  font-size: 15px;
+  text-align: start;
+  color: white;
+
+}
+li button{
+  margin: 9px;
+  width:7%;
+  color:red;
+  background: transparent;
+  border:none;
+  font-size: 18px;
+}
+
+.footer{
+ height:10%;
+ display: flex;
+
+}
+input[type="text"]{
+  width:80%;
+  background-color: whitesmoke;
+  border-bottom-left-radius: 10px;
+ 
+}
+button[type="submit"]{
+  width:20%;
+  background-color: rgb(33, 197, 60);
+  border-bottom-right-radius: 10px;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
