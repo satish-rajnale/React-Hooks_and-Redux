@@ -1,9 +1,9 @@
+import { Cordinate } from "../interfaces/interface";
+
+
 // function overloading
 
-interface Cordinate {
-  x: number;
-  y: number;
-}
+
 
 function parseCordinatefromObject(obj: Cordinate): Cordinate {
   return { ...obj };

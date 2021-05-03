@@ -1,9 +1,7 @@
 import houses from "./houses.json";
+import { House } from "./interfaces/interface";
 
-interface House {
-  name: string;
-  planets: string | string[];
-}
+
 
 // interface HouseWithID {
 //     id : number;
@@ -33,13 +31,20 @@ function findHouses(
   filter: (house: House) => boolean
 ): HouseWithID[];
 
-//there is also no need to incude above signature you can just use the 
+//there is also no need to incude above signature you can just use the
 // following defining method for each of your function
 
-function findHouses(input: string | House[], filter?: (house: House) => boolean ): HouseWithID[] {
-  const localHouses: House[] = typeof input === "string" ? JSON.parse(input) : input;
+function findHouses(
+  input: string | House[],
+  filter?: (house: House) => boolean
+): HouseWithID[] {
+  const localHouses: House[] =
+    typeof input === "string" ? JSON.parse(input) : input;
 
-  return (filter ? localHouses.filter(filter) : localHouses).map((house) => ({ id: localHouses.indexOf(house), ...house,}));
+  return (filter ? localHouses.filter(filter) : localHouses).map((house) => ({
+    id: localHouses.indexOf(house),
+    ...house,
+  }));
 }
 
 console.log(
