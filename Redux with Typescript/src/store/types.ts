@@ -5,6 +5,6 @@ export interface Todo {
  }
 
  export interface Store {
-     tosos: Todo[]
+     todos: Todo[]
      newTodo: string
  } 
