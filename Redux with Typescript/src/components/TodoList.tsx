@@ -5,7 +5,7 @@ import {Store } from "../store/types"
 import { deleteTodo, toggleTodo, updateTodo } from "../store/actions";
 function TodoListItems() {
   const todos = useSelector((state: Store) => state.todos);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   return (
     <>
