@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "text": "Get up",
+    "done": false
+  },
+  {
+    "id": 2,
+    "text": "Eat breakfast",
+    "done": false
+  },
+  {
+    "id": 3,
+    "text": "Study",
+    "done": false
+  }
+]
