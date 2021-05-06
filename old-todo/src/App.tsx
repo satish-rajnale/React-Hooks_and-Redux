@@ -1,7 +1,7 @@
-import React, { ReactElement, ReactNode, useEffect, useMemo, useRef, useState } from "react";
+import React, { ReactElement, ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Todo from './Todo';
 import "./App.css";
-
+import TestTimer from "./testTimer";
 
 
 
@@ -10,17 +10,19 @@ import "./App.css";
 
 
 const App: React.FC = () => {
- 
+ const [index, setIndex] = useState(0)
+ const updateIndex = useCallback(() => setIndex(index +1), [index] )
   return (
     <div className="App">
       {/* <div className="todoApp">
         <Todo></Todo>
       </div> */}
-     
-        <Heading title="Hi types"/>
+      <TestTimer key={index}/>
+      <button onClick={updateIndex}>update Index</button>
+        {/* <Heading title="Hi types"/>
         <HeadingWithContent>
           <strong>Where are you</strong>
-        </HeadingWithContent>
+        </HeadingWithContent> */}
         <Container>
           <p> fooo</p>
         </Container>
