@@ -6,7 +6,7 @@ import UseEffectComponent from "./component/useEffectComponent"
 import UseContextComponent from "./component/UseContextComponent";
 import UseReducerComponent from "./component/UseReducerComponent"
 import UseRefComponent from "./component/UseRefComponent"
-
+import CustomHooksComponent from "./component/CUstomHooksComponent"
 
 
 const App: React.FC = () => {
@@ -25,8 +25,9 @@ const App: React.FC = () => {
       <UseReducerComponent/>
       <h2>UseRefComponent</h2>
       <UseRefComponent/>
+      <h2>CustomHooksComponent</h2>
+      <CustomHooksComponent/>
       <h2>TestTimer</h2>
-
       <TestTimer key={index}/>
       <button onClick={updateIndex}>update Index</button>
       <h2>Heading</h2>
