@@ -25,10 +25,10 @@ function Todo() {
         setList(data);
         setAlert(false);
       }
-      console.log("fetched")
+     // console.log("fetched")
       return () => {mounted.current = false}
     }, [alert]);
-    console.log(list)
+   // console.log(list)
   
     const addTodo = () => {
       setTodoList([...todoList, task]);
@@ -47,7 +47,7 @@ function Todo() {
     }, [dark]);
   
     useEffect(() => {
-      console.log("theme chnaged");
+     // console.log("theme chnaged");
     }, [theme]);
   
 

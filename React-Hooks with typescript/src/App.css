@@ -1,7 +1,9 @@
 .App {
+  box-sizing: border-box;
   text-align: center;
   background-color: #c1cee9;
-  height: 100vh;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,18 +11,18 @@
 }
 
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
 
 .todoApp{
   display: flex;
   flex-direction: column;
   width:500px;
-  height:560px;
+
   border-radius: 10px;
   border: 1px solid #04276e;
 }
@@ -57,7 +59,7 @@ section{
   border:none;
   overflow-y: scroll;
 
-  height:504px;
+ 
   background-color: #aabfeb;
 }
 
