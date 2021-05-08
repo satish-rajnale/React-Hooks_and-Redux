@@ -31,15 +31,15 @@ function useFetchData <Drink>(url : string): {data:Drink | null, done: boolean}{
 
 export default function CustomHooksComponent(){
    const {data, done} = useFetchData<Beverage[]>("/hcList.json")
-   const portLandTaps = useMemo(() => ( (data || []).filter( bev => bev.producerLocation.includes("Portland"))
-   ), [data]) ;
-
+   const portLandTaps = useMemo(() =>  (data || []).filter( bev => bev.producerLocation.includes("Portland")
+), [data]) ;
+console.log(portLandTaps)
    return (
         <div>
             {/* {done && ( // here data can be undefined so use data !
                 <img alt="Beverage logo" src={data![0].logo}></img>
             )} */}
-            {portLandTaps && ( // here data can be undefined so use data !
+            {portLandTaps.length && ( // here data can be undefined so use data !
                 <img alt="Beverage logo" src={portLandTaps![0].logo}></img>
             )}
         </div>
