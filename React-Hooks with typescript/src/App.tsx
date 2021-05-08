@@ -6,7 +6,7 @@ import UseEffectComponent from "./component/useEffectComponent"
 import UseContextComponent from "./component/UseContextComponent";
 import UseReducerComponent from "./component/UseReducerComponent"
 import UseRefComponent from "./component/UseRefComponent"
-import CustomHooksComponent from "./component/CUstomHooksComponent"
+import CustomHooksComponent from "./component/CustomHookComponent"
 
 
 const App: React.FC = () => {
