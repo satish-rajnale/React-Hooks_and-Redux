@@ -18,6 +18,7 @@ const App: React.FC = () => {
       <div className="todoApp">
         <Todo></Todo>
       </div>
+      <h2>UseCallbackComponent</h2>
       <UseCallbackComponent/>
       <h2>UseEffectComponent</h2>
       <UseEffectComponent/>

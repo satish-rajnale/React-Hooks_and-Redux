@@ -27,10 +27,10 @@ function TestTimer() {
     // case triggered by the key = index passed to it that gets updated each time button in App compo clicked
     const timer = setInterval(() => {
       setCounter((currentCounter) => {
-       // console.log(`timerID: ${timerID} : counter ${currentCounter}`);
+        console.log(`timerID: ${timerID} : counter ${currentCounter}`);
         return currentCounter + 1;
       });
-    }, 500);
+    }, 2000);
     return () => {
       clearInterval(timer);
     };
@@ -52,10 +52,11 @@ function TestTimer() {
 //       toolTipPopper.current?.removeEventListener("mouseout", onMouseOut);
 //     };
 //   }, [onMouseOver, onMouseOut]);
+console.log("component updated")
 
   // solution is you cache the ref
   useEffect(() => {
-     // console.log("add event listener")
+     console.log("add event listener")
     toolTipPopper.current?.addEventListener("mouseover", onMouseOver);
     toolTipPopper.current?.addEventListener("mouseout", onMouseOut);
 
@@ -64,7 +65,7 @@ function TestTimer() {
     // removed when there is a new comonent through updateIndex and again new event
     // listeners are added to it that remain till the component life
     return () => {
-     // console.log("remove event listener")
+    console.log("remove event listener")
      reference?.removeEventListener("mouseover", onMouseOver);
      reference?.removeEventListener("mouseout", onMouseOut);
     };
