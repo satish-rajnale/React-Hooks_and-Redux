@@ -33,7 +33,7 @@ export default function CustomHooksComponent(){
    const {data, done} = useFetchData<Beverage[]>("/hcList.json")
    const portLandTaps = useMemo(() =>  (data || []).filter( bev => bev.producerLocation.includes("Portland")
 ), [data]) ;
-console.log(portLandTaps)
+// console.log(portLandTaps)
    return (
         <div>
             {/* {done && ( // here data can be undefined so use data !

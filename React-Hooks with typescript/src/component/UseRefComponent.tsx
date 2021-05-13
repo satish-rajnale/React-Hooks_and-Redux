@@ -8,8 +8,8 @@ export default function UseRefComponent(){
     if(myRef.current?.value){
             val = myRef.current?.value
         }
-        console.log(val)
-        console.log(myRef.current?.value)
+        // console.log(val)
+        // console.log(myRef.current?.value)
     }, [myRef.current?.value])
     return (
         <>

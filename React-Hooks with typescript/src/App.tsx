@@ -7,6 +7,7 @@ import UseContextComponent from "./component/UseContextComponent";
 import UseReducerComponent from "./component/UseReducerComponent"
 import UseRefComponent from "./component/UseRefComponent"
 import CustomHooksComponent from "./component/CustomHookComponent"
+import UseCallbackComponent from "./component/UseCallbackComponent"
 
 
 const App: React.FC = () => {
@@ -17,6 +18,7 @@ const App: React.FC = () => {
       <div className="todoApp">
         <Todo></Todo>
       </div>
+      <UseCallbackComponent/>
       <h2>UseEffectComponent</h2>
       <UseEffectComponent/>
       <h2>UseContextComponent</h2>
