@@ -30,11 +30,11 @@ export const Hello = ({ increment }) => {
   // increment can be stored in memo but it changes everytime increment changes and increment changes all the time
   const [items, setItems] = useState([]);
   useEffect(() => {
-    //   console.log("count",items)
+    console.log("count",items)
     setItems(increment(20));
   }, [increment]);
   const renders = useRef(0);
-//   console.log("renders", renders.current++);
+  // console.log("renders", renders.current++);
   return (
     <ul>
       {items.map((i, ind) => (
