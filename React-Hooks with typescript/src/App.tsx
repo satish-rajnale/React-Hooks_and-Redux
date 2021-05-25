@@ -4,7 +4,7 @@ import "./App.css";
 import TestTimer from "./testTimer";
 import UseEffectComponent from "./component/useEffectComponent"
 import UseContextComponent from "./component/UseContextComponent";
-import UseReducerComponent from "./component/UseReducerComponent"
+import UseReducerComponent,{SecondReducerExample} from "./component/UseReducerComponent"
 import UseRefComponent from "./component/UseRefComponent"
 import CustomHooksComponent from "./component/CustomHookComponent"
 import UseCallbackComponent from "./component/UseCallbackComponent"
@@ -18,6 +18,7 @@ const App: React.FC = () => {
       <div className="todoApp">
         <Todo></Todo>
       </div>
+     
       <h2>UseCallbackComponent</h2>
       <UseCallbackComponent/>
       <h2>UseEffectComponent</h2>
@@ -26,6 +27,7 @@ const App: React.FC = () => {
       <UseContextComponent/>
       <h2>UseReducerComponent</h2>
       <UseReducerComponent/>
+      <SecondReducerExample/>
       <h2>UseRefComponent</h2>
       <UseRefComponent/>
       <h2>CustomHooksComponent</h2>
