@@ -6,3 +6,5 @@ React hooks provide the same functionality with ease of use.
 Different react Hooks:
  - useState 
  - useCallback
+ - useEffect
+ - useReducer
