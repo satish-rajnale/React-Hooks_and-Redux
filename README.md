@@ -12,3 +12,5 @@ Different react Hooks:
  - useRef
  - useMemo
  - useImperative
+ - useContext
+ 
