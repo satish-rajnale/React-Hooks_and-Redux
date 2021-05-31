@@ -10,3 +10,5 @@ Different react Hooks:
  - useReducer
  - useLayoutEffect
  - useRef
+ - useMemo
+ - useImperative
