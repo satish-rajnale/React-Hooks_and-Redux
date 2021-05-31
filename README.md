@@ -8,3 +8,5 @@ Different react Hooks:
  - useCallback
  - useEffect
  - useReducer
+ - useLayoutEffect
+ - useRef
