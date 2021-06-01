@@ -16,3 +16,4 @@ Different react Hooks:
  
  
  You can also create custom hooks to further improve efficiency and clean code development.
+Several hooks use a second argument of array of dependancies.
