@@ -11,6 +11,8 @@ Different react Hooks:
  - useLayoutEffect
  - useRef
  - useMemo
- - useImperative
+ - useImperativeHandle
  - useContext
  
+ 
+ You can also create custom hooks to further improve efficiency and clean code development.
