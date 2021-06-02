@@ -22,3 +22,5 @@ e.g useEffect, useMemo, useCallback etc.
 
 Though you will be mostly dealing with useEffect, useState and useContext.
 
+## useState
+It gives two params first the actual state and second a modifier/action dispatcher for the state. 
