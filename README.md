@@ -20,3 +20,5 @@ Several hooks use a second argument of array of dependancies.
 
 e.g useEffect, useMemo, useCallback etc.
 
+Though you will be mostly dealing with useEffect, useState and useContext.
+
