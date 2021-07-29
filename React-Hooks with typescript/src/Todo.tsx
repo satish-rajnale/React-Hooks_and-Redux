@@ -1,10 +1,19 @@
 
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Header from "./Header";
 import { getList } from "./placeholder";
+import {createGlobalState} from "react-use"
+
+interface Todo{
+  id: number;
+  text: String;
+  done: boolean;
+}
+const useGlobalTodos = createGlobalState<Todo[]>([]);
 
 
 function Todo() {
+  const [todos, setTodos] = useGlobalTodos();
     const [task, setTask] = useState<string>(""); // <string | null> throws error that value cannot be null;
     const [todoList, setTodoList] = useState<Array<string>>(["Hii I am here"]); // null does not work Array<string |null> it shows error that string[] cannot be null
     const [dark, setDark] = useState<boolean>(false);
@@ -14,7 +23,6 @@ function Todo() {
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setTask(event.target.value);
     };
-  
     useEffect(() => {
       mounted.current = true;
       if (list.length!==0 && !alert) {
@@ -30,9 +38,9 @@ function Todo() {
     }, [alert]);
    // console.log(list)
   
-    const addTodo = () => {
-      setTodoList([...todoList, task]);
-    };
+    const addTodo = useCallback((text:string) => {
+      setTodos([...todos, {id:todos.length,text:text,done:false}])
+    },[todos]);
     const changeBack = (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
       setDark(!dark);
@@ -77,7 +85,8 @@ function Todo() {
           </div>
           <div className="footer">
             <input type="text" value={task} onChange={handleChange} />
-            <button type="submit" onClick={addTodo}>
+            <button type="submit" >
+              {/* onClick={addTodo}> */}
               Add
             </button>
           </div>
