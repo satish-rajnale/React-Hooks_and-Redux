@@ -1,8 +1,12 @@
 
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useReducer, useRef, useState } from "react";
 import Header from "./Header";
 import { getList } from "./placeholder";
 import {createGlobalState} from "react-use"
+
+type ACTIONTYPES = 
+| {type: "ADD"; text: String}
+| {type: "REMOVE"; id: number}
 
 interface Todo{
   id: number;
@@ -11,9 +15,44 @@ interface Todo{
 }
 const useGlobalTodos = createGlobalState<Todo[]>([]);
 
+export function useTodos(initialTodos: Todo[]):{
+  todos: Todo[];
+  addTodo: (text:string) => void;
+  removeTodo: (id: number) => void;
+}{
 
-function Todo() {
   const [todos, setTodos] = useGlobalTodos();
+
+  useEffect(()=>{
+    setTodos(initialTodos)
+  },[initialTodos,setTodos]);
+
+  const addTodo = useCallback((text:string) => {
+    setTodos([...todos, {id:todos.length,text:text,done:false}])
+  },[todos,setTodos]);
+  const removeTodo = useCallback((removeid:number) => {
+    setTodos(todos.filter(({id}) => id != removeid));
+
+  },[todos,setTodos]);
+  // const [todos, dispatch] = useReducer((state: Todo[],action: ACTIONTYPES) => {
+  //   switch(action.type){
+  //     case "ADD":
+  //       return {
+  //         ...state,
+  //         {
+  //           id:number,
+  //           text:text,
+
+  //         }
+  //       }
+  //   }
+  // })
+  return {todos, addTodo,removeTodo};
+}
+
+
+const Todo = () =>{
+ 
     const [task, setTask] = useState<string>(""); // <string | null> throws error that value cannot be null;
     const [todoList, setTodoList] = useState<Array<string>>(["Hii I am here"]); // null does not work Array<string |null> it shows error that string[] cannot be null
     const [dark, setDark] = useState<boolean>(false);
@@ -38,14 +77,11 @@ function Todo() {
     }, [alert]);
    // console.log(list)
   
-    const addTodo = useCallback((text:string) => {
-      setTodos([...todos, {id:todos.length,text:text,done:false}])
-    },[todos]);
-    const changeBack = (e: React.MouseEvent<HTMLButtonElement>) => {
-      e.preventDefault();
-      setDark(!dark);
-    };
-  
+   const changeBack = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setDark(!dark);
+  };
+
   
     const theme = useMemo(() => {
       return {
