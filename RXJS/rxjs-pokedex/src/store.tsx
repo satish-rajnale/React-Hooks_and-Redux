@@ -1,3 +1,4 @@
+import { createContext, useContext } from "react";
 import {BehaviorSubject, combineLatestWith, map} from "rxjs";
 import { combineLatestInit } from "rxjs/internal/observable/combineLatest";
 
@@ -45,3 +46,24 @@ export const deck$ = pokemon$.pipe(
 fetch("/pokemin-simplified.json")
   .then((res) => res.json())
   .then((data) => rawPokemon$.next(data));
+
+
+  const PokemonContext = createContext({
+      pokemon$,
+      deck$,
+      selected$
+  });
+
+export const usePokemon = () => useContext(PokemonContext);
+
+ export  const PokemonProvider: React.FunctionComponent = ({children}) => {
+    return(
+        <PokemonContext.Provider 
+        value={{     
+             pokemon$,
+            deck$,
+            selected$}} >
+                {children}
+        </PokemonContext.Provider>
+    )
+  } 

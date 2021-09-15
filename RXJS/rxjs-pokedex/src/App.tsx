@@ -5,7 +5,9 @@ import { BehaviorSubject, combineLatestWith, map } from "rxjs";
 import "./App.css";
 
 import {
+  PokemonProvider,
   Pokemon,
+  usePokemon,
   deck$,
   rawPokemonwithPower$,
   pokemon$,
@@ -13,6 +15,7 @@ import {
 } from "./store";
 
 const Deck = () => {
+  const {deck$} = usePokemon(); 
   const deck = useObservableState(deck$, []);
 
   return (
@@ -20,15 +23,14 @@ const Deck = () => {
       <div>Deck</div>
       <div>
         {deck.map((p) => (
-          <div key={p.id} style={{display:"flex"}}>
+          <div key={p.id} style={{ display: "flex" }}>
             <img
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.id}.png`}
               alt={p.name}
             />
-    <div>
+            <div>
               <div>{p.name}</div>
             </div>
-         
           </div>
         ))}
       </div>
@@ -38,14 +40,15 @@ const Deck = () => {
 
 const Search = () => {
   const [search, setsearch] = useState("");
-  const [Pokemon, setPokemon] = useState<Pokemon[]>([]);
+  const {pokemon$, selected$} = usePokemon(); 
+  const Pokemon = useObservableState(pokemon$, []);
 
-  useEffect(() => {
-    // rawPokemon$.subscribe(console.log);
-    //  const sub =  rawPokemonwithPower$.subscribe(setPokemon);
-    const sub = pokemon$.subscribe(setPokemon);
-    return () => sub.unsubscribe();
-  }, []);
+  // useEffect(() => {
+  //   // rawPokemon$.subscribe(console.log);
+  //   //  const sub =  rawPokemonwithPower$.subscribe(setPokemon);
+  //   const sub = pokemon$.subscribe(setPokemon);
+  //   return () => sub.unsubscribe();
+  // }, []);
 
   const filteredPokemon = useMemo(() => {
     return Pokemon.filter((p) => p.name.toLowerCase().includes(search));
@@ -81,10 +84,12 @@ const Search = () => {
 };
 function App() {
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
-      <Search />
-      <Deck />
-    </div>
+    <PokemonProvider>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+        <Search />
+        <Deck />
+      </div>
+    </PokemonProvider>
   );
 }
 
