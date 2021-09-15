@@ -5,7 +5,7 @@ import { BehaviorSubject, combineLatestWith, map } from "rxjs";
 
 import "./App.css";
 
-import { Pokemon, rawPokemonwithPower$,  } from "./store";
+import { Pokemon, rawPokemonwithPower$, pokemon$, selected$ } from "./store";
 
 const Search = () => {
   const [search, setsearch] = useState("");
@@ -14,7 +14,8 @@ const Search = () => {
   
   useEffect(()=>{
     // rawPokemon$.subscribe(console.log);
-   const sub =  rawPokemonwithPower$.subscribe(setPokemon);
+  //  const sub =  rawPokemonwithPower$.subscribe(setPokemon);
+   const sub =  pokemon$.subscribe(setPokemon);
     return () => sub.unsubscribe();
   },[]);
 
@@ -32,6 +33,16 @@ const Search = () => {
       />
       {filteredPokemon.map((p) => (
         <div key={p.name}>
+          <input type="checkbox" 
+          // checked={selected$.value.includes(p.id)}
+          checked={p.selected}
+          onChange={() => { 
+            if(selected$.value.includes(p.id)){
+              selected$.next(selected$.value.filter((id) => id !== p.id));
+            }else{
+              selected$.next([...selected$.value, p.id]);
+            }
+          }}/>
           <strong>{p.name}</strong> - {p.power}
         </div>
       ))}
