@@ -7663,6 +7663,11 @@ object.values@^1.1.0, object.values@^1.1.1:
     es-abstract "^1.18.0-next.1"
     has "^1.0.3"
 
+observable-hooks@^4.0.5:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/observable-hooks/-/observable-hooks-4.0.5.tgz#00185d17979251ea518e1c7e8fe4c52e8b074b35"
+  integrity sha512-st96cqHEEbRl2wQmAOesptA788HJR46MRhKIpBQDyl6s7sfh2SRgulzzk43DXJUwyYZ6KdaDaUDY4LKJ6Cjw8Q==
+
 obuf@^1.0.0, obuf@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/obuf/-/obuf-1.1.2.tgz#09bea3343d41859ebd446292d11c9d4db619084e"
