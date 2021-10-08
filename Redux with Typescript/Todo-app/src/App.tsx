@@ -1,19 +1,20 @@
 import * as React from "react";
 import { ChakraProvider, Box, theme } from "@chakra-ui/react";
-import {Provider, useSelector} from "react-redux"
-import { store } from "./lib/store";
+import {Provider} from "react-redux"
+import TopBar from "./components/TopBar";
+import TodoList from "./components/TodoList";
+import TodoAdd from "./components/TodoAdd";
+import store from "./store/store"
 export function App() {
   return (
     <Provider store={store}>
     <ChakraProvider theme={theme}>
       <Box maxWidth="8xl" margin="auto" p={5}>
-       <TodoApp/> 
+        <TopBar />
+        <TodoList />
+        <TodoAdd />
       </Box>
     </ChakraProvider>
     </Provider>
   );
-};
-
-const TodoApp = () => {
-  return <div className="App"></div>
 }
