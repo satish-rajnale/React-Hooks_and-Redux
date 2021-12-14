@@ -2,17 +2,40 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.animeList {
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.singleAnime {
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  width: 300px;
+  border-radius: 8px;
+  font-size: 20px;
+  margin: 2px;
+  display: flex;
+  background-color: #373e47;
 }
-
+.singleAnime p {
+  line-height: 1;
+  width: 100%;
+  color: #fff;
+  text-overflow: clip;
+  text-justify: kashida;
+  text-align: left;
+  margin-left: 10px;
+}
+.singleAnime img {
+  height: inherit;
+  width: 50px;
+  margin: 0;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
